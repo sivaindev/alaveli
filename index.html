@@ -212,6 +212,39 @@
    style="display: inline-block; margin-top: 1rem; padding: 12px 20px; background-color: #0d8f55; color: white; text-decoration: none; font-weight: bold; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
    Donate via UPI App
 </a>
+
+    <!-- UPI ID Display -->
+<p style="font-size: 0.9em; color: #a94442; margin-top: 1rem;">
+⚠️ If your UPI app shows a risk warning, please don’t worry — this link is safe and created for donation convenience.  
+You can also scan the QR code below or use our UPI ID directly:  
+<strong id="upi-id">msvvenkatesh74-1@oksbi</strong>
+</p>
+
+<!-- Copy Button -->
+<button onclick="copyUPI()"
+        style="margin-top: 5px; padding: 6px 14px; font-size: 0.9rem; border: none; background-color: #0d8f55; color: white; border-radius: 5px; cursor: pointer;">
+  Copy UPI ID
+</button>
+
+<!-- Confirmation Toast -->
+<div id="copy-toast" style="display:none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+     background-color: #333; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; opacity: 0.9;">
+  ✅ UPI ID copied
+</div>
+
+<!-- Script -->
+<script>
+  function copyUPI() {
+    const upiID = document.getElementById("upi-id").textContent;
+    navigator.clipboard.writeText(upiID).then(() => {
+      const toast = document.getElementById("copy-toast");
+      toast.style.display = "block";
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 2000);
+    });
+  }
+</script>
 </section>
 
 
